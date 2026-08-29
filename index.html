@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="PTC Traders - Potato Procurement, Bulk Supply and Contract Farming from Ujjain, Madhya Pradesh.">
+<title>PTC Traders | Potato Procurement & Supply</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="nav">
+  <div class="logo">PTC <span>TRADERS</span></div>
+  <nav><a href="#about">About</a><a href="#services">Services</a><a href="#buyers">For Buyers</a><a href="#inquiry">Inquiry</a><a href="#contact">Contact</a></nav>
+  <a class="call" href="tel:+918770998893">Call Now</a>
+</header>
+
+<section class="hero" id="home">
+  <div>
+    <p class="eyebrow">UJJAIN • MADHYA PRADESH</p>
+    <h1>Reliable <span>Potato Procurement</span> & Supply</h1>
+    <p class="lead">PTC Traders connects potato buyers with farmer sourcing, bulk potato supply and contract farming coordination.</p>
+    <div class="actions">
+      <a class="btn" href="#inquiry">Request Potato Supply</a>
+      <a class="btn outline" href="https://wa.me/918770998893?text=Hello%20PTC%20Traders%2C%20I%20have%20a%20bulk%20potato%20requirement." target="_blank">WhatsApp Inquiry</a>
+    </div>
+  </div>
+  <div class="hero-card"><div class="emoji">🥔</div><h2>Bulk Potato Supply</h2><p>For commercial and food-processing buyers.</p><hr><b>Contact</b><br>NOSHAD PATEL <br> 8770998893</div>
+</section>
+
+<section class="section" id="about">
+  <p class="eyebrow">ABOUT PTC TRADERS</p><h2>आलू की खरीद और सप्लाई में भरोसेमंद पार्टनर</h2>
+  <p class="wide">PTC Traders, Ujjain से किसानों के साथ sourcing करके आलू की खरीद, bulk supply और contract farming coordination का कार्य करता है। हमारा focus buyers की requirements के अनुसार organized procurement और supply support पर है।</p>
+</section>
+
+<section class="section gray" id="services">
+  <p class="eyebrow">OUR SERVICES</p><h2>हम क्या करते हैं?</h2>
+  <div class="cards">
+    <article><div class="icon">🥔</div><h3>Potato Procurement</h3><p>Farmers और sourcing network से buyer requirements के अनुसार आलू की procurement.</p></article>
+    <article><div class="icon">🚚</div><h3>Bulk Potato Supply</h3><p>Commercial buyers के लिए quantity और delivery requirements के अनुसार supply.</p></article>
+    <article><div class="icon">🌱</div><h3>Contract Farming</h3><p>Farmers के साथ organized potato production और contract farming coordination.</p></article>
+  </div>
+</section>
+
+<section class="section contract" id="contract-farming">
+  <div>
+    <p class="eyebrow">CONTRACT FARMING</p>
+    <h2>McCain Santana Potato Contract Farming</h2>
+    <p class="wide">PTC Traders किसानों के लिए Santana variety के potato contract farming और procurement coordination में सहायता करता है। उपलब्ध agreement/booking और लागू quality requirements के अनुसार farmer registration लिया जाता है।</p>
+    <ul><li>🌱 Santana variety potato farming</li><li>📋 Farmer registration & field details</li><li>🥔 Quality-focused crop planning</li><li>🚜 Harvest और procurement coordination</li></ul>
+  </div>
+  <div class="farmer-card">
+    <h3>किसान Registration</h3><p>Contract farming के लिए अपनी details भेजें।</p>
+    <form action="{{ url_for('farmer_registration') }}" method="post">
+      <input name="name" placeholder="किसान का नाम" required>
+      <input name="phone" placeholder="मोबाइल नंबर" required>
+      <input name="village" placeholder="गांव" required>
+      <input name="area" placeholder="कुल जमीन (एकड़)" required>
+      <input name="expected_production" placeholder="अनुमानित बेग संख्या">
+      <textarea name="message" placeholder="अन्य जानकारी"></textarea>
+      <button class="btn" type="submit">Registration भेजें</button>
+    </form>
+  </div>
+</section>
+
+<section class="section buyers" id="buyers">
+  <div><p class="eyebrow">FOR POTATO BUYERS</p><h2>Need Bulk Potatoes?</h2><p class="wide">अपनी company की potato requirement भेजें। Quantity, specification और delivery location के आधार पर हमारी team आपसे संपर्क करेगी।</p>
+  <ul><li>Bulk procurement support</li><li>Farmer sourcing network</li><li>Contract farming coordination</li><li>Ujjain, Madhya Pradesh based operations</li></ul></div>
+  <div class="buyer-card"><div class="emoji">🥔</div><h3>Buyer Requirement</h3><p>Quantity • Specification • Location • Date</p></div>
+</section>
+
+<section class="section gray" id="inquiry">
+  <p class="eyebrow">BUSINESS INQUIRY</p><h2>Potato Supply Requirement</h2>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, message in messages %}<div class="success">{{ message }}</div>{% endfor %}
+  {% endwith %}
+  <form action="{{ url_for('inquiry') }}" method="post">
+    <div class="formgrid">
+      <input name="company" placeholder="Company Name" required>
+      <input name="person" placeholder="Contact Person" required>
+      <input name="phone" placeholder="Mobile / WhatsApp" required>
+      <input name="quantity" placeholder="Required Quantity (e.g. 100 MT)" required>
+      <input name="specification" placeholder="Potato Type / Specification">
+      <input name="location" placeholder="Delivery Location" required>
+      <input name="date" type="date">
+      <textarea name="message" placeholder="Additional Requirement"></textarea>
+    </div>
+    <button class="btn" type="submit">Submit Buyer Inquiry</button>
+  </form>
+</section>
+
+<section class="section" id="contact">
+  <p class="eyebrow">CONTACT</p><h2>PTC TRADERS</h2>
+  <div class="contact-grid">
+    <div><h3>Noshad Patel</h3><p>Potato Procurement • Bulk Supply • Contract Farming</p></div>
+    <div><p><b>Phone:</b> <a href="tel:+918770998893">8770998893</a></p><p><b>Address:</b><br>Tajpur Maxi Road, Ujjain, Madhya Pradesh</p></div>
+  </div>
+</section>
+
+<footer>© <span id="year"></span> PTC Traders. All rights reserved.</footer>
+<a class="float" href="https://wa.me/918770998893" target="_blank">💬</a>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+</body>
+</html>
